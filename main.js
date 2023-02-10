@@ -7,9 +7,17 @@ const stats = {
   beatMultiplier: 0,
 }
 
-let oldStats = { ...stats}
+const scoreTiers = {
+	perfect: 0.9,
+  great: 0.75,
+  good: 0.5,
+  okay: 0.3
+}
 
-const BPM = 90;
+let oldStats = { ...stats}
+let scoreTimer = 1;
+let clickMultiplier = 1;
+const BPM = 90
 const singleBeatTime = 60000/BPM;
 let beatTiming = 0;
 
@@ -22,6 +30,7 @@ const BPMEl = document.querySelector('#BPM');
 const LSBTEl = document.querySelector('#lastSingleBeatTime');
 const beatMultiplierEl = document.querySelector('#beatMultiplier');
 const beatTimingEl = document.querySelector('#beatTime');
+const scoreListEl = document.querySelector('#score-list');
 
 BPMEl.textContent = BPM.toString();
 
@@ -43,6 +52,29 @@ loop.onRender = function(i) {
   beatMultiplierEl.textContent = stats.beatMultiplier.toFixed(2);
   beatTimingEl.textContent = beatTiming.toFixed(2);
 };
+
+BeatButton.addEventListener('click', () =>{
+  let li = document.createElement('li');
+  switch(true){
+  	case stats.beatMultiplier > scoreTiers.perfect:
+    	li.textContent = "perfect";
+    	scoreListEl.appendChild(li);
+      break;
+    case stats.beatMultiplier > scoreTiers.great:
+    	li.textContent = "great";
+      scoreListEl.appendChild(li);
+      break;
+   	case stats.beatMultiplier > scoreTiers.good:
+    	li.textContent = "good";
+      scoreListEl.appendChild(li);
+      break;
+    case stats.beatMultiplier > scoreTiers.okay:
+    	li.textContent = "okay";
+      scoreListEl.appendChild(li);
+      break;
+  }
+  clickMultiplier = 0;
+})
 
 loop.onPanic = function() {
   // discard any accumulated lag time and hope for the best

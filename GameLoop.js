@@ -60,8 +60,11 @@ class GameLoop {
     this.timing.lag += this.timing.delta;
     this.timing.last = time;
     beatTiming = this.timing.total - lastSingleBeatTime;
-    stats.beatMultiplier = Math.cos(beatTiming*time);
-
+    scoreTimer = ((1/2)+(1/2)*Math.cos(2*beatTiming*Math.PI/singleBeatTime));
+    stats.beatMultiplier = clickMultiplier*scoreTimer;
+    if (scoreTimer.toFixed(2)==0.00){
+    	clickMultiplier = 1;
+    }
     if (beatTiming >= singleBeatTime){
       lastSingleBeatTime = this.timing.total;
     }
