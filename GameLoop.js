@@ -59,9 +59,8 @@ class GameLoop {
     this.timing.total += this.timing.delta;
     this.timing.lag += this.timing.delta;
     this.timing.last = time;
-    let delta = this.timing.delta;
-    if (this.timing.delta - lastSingleBeatTime >= singleBeatTime){
-      lastSingleBeatTime = this.timing.delta;
+    if (this.timing.total - lastSingleBeatTime >= singleBeatTime){
+      lastSingleBeatTime = this.timing.total;
     }
 
     let numberOfUpdates = 0;
