@@ -59,9 +59,13 @@ class GameLoop {
     this.timing.total += this.timing.delta;
     this.timing.lag += this.timing.delta;
     this.timing.last = time;
-    if (this.timing.total - lastSingleBeatTime >= singleBeatTime){
+    beatTiming = this.timing.total - lastSingleBeatTime;
+    stats.beatMultiplier = Math.cos(beatTiming*time);
+
+    if (beatTiming >= singleBeatTime){
       lastSingleBeatTime = this.timing.total;
     }
+
 
     let numberOfUpdates = 0;
 
