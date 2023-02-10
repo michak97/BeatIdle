@@ -60,6 +60,11 @@ class GameLoop {
     this.timing.lag += this.timing.delta;
     this.timing.last = time;
 
+    if (this.timing.delta - lastSingleBeatTime >= singleBeatTime){
+      lastSingleBeatTime = this.timing.delta;
+
+    }
+
     let numberOfUpdates = 0;
 
     while (this.timing.lag >= this.options.step) {
