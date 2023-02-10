@@ -18,6 +18,7 @@ const BeatEl = document.querySelector('#beatTime');
 const BPMEl = document.querySelector('#BPM');
 const SBTEl = document.querySelector('#singleBeatTime');
 const LSBTEl = document.querySelector('#lastSingleBeatTime');
+const DeltaEl = document.querySelector('#delta');
 
 BPMEl.textContent = BPM.toString();
 SBTEl.textContent = singleBeatTime.toString();
@@ -37,6 +38,7 @@ loop.onRender = function(i) {
   currencyEl.textContent = currency.toFixed(2);
   LSBTEl.textContent = lastSingleBeatTime.toFixed(2);
   BeatEl.textContent = singleBeatTime.toFixed(2);
+  DeltaEl.textContent = delta.toFixed(2);
 };
 
 loop.onPanic = function() {
