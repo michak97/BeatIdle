@@ -20,7 +20,7 @@ let currency_per_millisecond = 0;
 const BeatEl = document.querySelector('#beatTime');
 const BPMEl = document.querySelector('#BPM');
 const LSBTEl = document.querySelector('#lastSingleBeatTime');
-const beatMultiplierEl = document.querySelector('#beatMult');
+const beatMultiplierEl = document.querySelector('#beatMultiplier');
 const beatTimingEl = document.querySelector('#beatTime');
 
 BPMEl.textContent = BPM.toString();
