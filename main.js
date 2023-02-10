@@ -38,7 +38,7 @@ loop.onRender = function(i) {
   currencyEl.textContent = currency.toFixed(2);
   LSBTEl.textContent = lastSingleBeatTime.toFixed(2);
   BeatEl.textContent = singleBeatTime.toFixed(2);
-  DeltaEl.textContent = delta.toFixed(2);
+  DeltaEl.textContent = delta.toString();
 };
 
 loop.onPanic = function() {
