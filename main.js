@@ -16,10 +16,11 @@ let currency_per_millisecond = 0;
 
 const BeatEl = document.querySelector('#beatTime');
 const BPMEl = document.querySelector('#BPM');
+const SBTEl = document.querySelector('#singleBeatTime');
 const LSBTEl = document.querySelector('#lastSingleBeatTime');
 
 BPMEl.textContent = BPM.toString();
-LSBTEl.textContent = lastSingleBeatTime.toFixed(2);
+SBTEl.textContent = singleBeatTime.toString();
 
 const currencyEl = document.querySelector('#currency');
 const BeatButton = document.querySelector('#clicker');
@@ -34,6 +35,7 @@ loop.onUpdate = function(dt, t) {
 
 loop.onRender = function(i) {
   currencyEl.textContent = currency.toFixed(2);
+  LSBTEl.textContent = lastSingleBeatTime.toFixed(2);
   BeatEl.textContent = singleBeatTime.toFixed(2);
 };
 

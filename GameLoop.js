@@ -62,7 +62,6 @@ class GameLoop {
 
     if (this.timing.delta - lastSingleBeatTime >= singleBeatTime){
       lastSingleBeatTime = this.timing.delta;
-
     }
 
     let numberOfUpdates = 0;
