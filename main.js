@@ -14,13 +14,20 @@ let lastSingleBeatTime = 0;
 let currency = 0;
 let currency_per_millisecond = 0;
 
-const currencyEl = document.querySelector('#currency');
 const BeatEl = document.querySelector('#beatTime');
+const BPMEl = document.querySelector('#BPM');
+const TSLBEl = document.querySelector('#timeSinceLastBeat');
+const LSBTEl = document.querySelector('#lastSingleBeatTime');
 
+BPMEl.textContent = BPM.toString();
+TSLBEl.textContent = ((loop.timing.delta)-lastSingleBeatTime).toFixed(2);
+LSBTEl.textContent = lastSingleBeatTime.toFixed(2);
+
+const currencyEl = document.querySelector('#currency');
 const BeatButton = document.querySelector('#clicker');
 
 BeatButton.addEventListener('click', () => {
-  stats.money += stats.moneyPerClick * BeatAccuracy;
+  stats.money += stats.moneyPerClick;
 })
 
 loop.onUpdate = function(dt, t) {
