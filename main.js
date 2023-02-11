@@ -21,6 +21,8 @@ const BPM = 90
 const singleBeatTime = 60000/BPM;
 let beatTiming = 0;
 
+let perfectStreak = 0;
+
 let lastSingleBeatTime = 0;
 let currency = 0;
 let currency_per_millisecond = 0;
@@ -31,6 +33,7 @@ const LSBTEl = document.querySelector('#lastSingleBeatTime');
 const beatMultiplierEl = document.querySelector('#beatMultiplier');
 const beatTimingEl = document.querySelector('#beatTime');
 const scoreListEl = document.querySelector('#score-list');
+const streakEl = document.querySelector('#score');
 
 BPMEl.textContent = BPM.toString();
 
@@ -51,6 +54,7 @@ loop.onRender = function(i) {
   BeatEl.textContent = singleBeatTime.toFixed(2);
   beatMultiplierEl.textContent = stats.beatMultiplier.toFixed(2);
   beatTimingEl.textContent = beatTiming.toFixed(2);
+  streakEl.textContent = perfectStreak.toFixed(2);
 };
 
 BeatButton.addEventListener('click', () =>{
@@ -59,18 +63,22 @@ BeatButton.addEventListener('click', () =>{
   	case stats.beatMultiplier > scoreTiers.perfect:
     	li.textContent = "perfect";
     	scoreListEl.appendChild(li);
+      perfectStreak++;
       break;
     case stats.beatMultiplier > scoreTiers.great:
     	li.textContent = "great";
       scoreListEl.appendChild(li);
+      perfectStreak=0;
       break;
    	case stats.beatMultiplier > scoreTiers.good:
     	li.textContent = "good";
       scoreListEl.appendChild(li);
+      perfectStreak=0;
       break;
     case stats.beatMultiplier > scoreTiers.okay:
     	li.textContent = "okay";
       scoreListEl.appendChild(li);
+      perfectStreak=0;
       break;
   }
   clickMultiplier = 0;
