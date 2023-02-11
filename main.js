@@ -133,13 +133,13 @@ BeatButton.addEventListener('click', () =>{
       resetStreak();
       break;
    	case stats.beatMultiplier > scoreTiers.good:
-    	li.textContent = "great";
+    	li.classList.add("good");
       pushScore(li);
       stats.beatMultiplier=1.2;
       resetStreak();
       break;
     case stats.beatMultiplier > scoreTiers.okay:
-    	li.textContent = "great";
+      li.classList.add("okay");
       pushScore(li);
       stats.beatMultiplier=1.0;
       resetStreak();
