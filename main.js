@@ -52,7 +52,6 @@ const BeatButton = document.querySelector('#clicker');
 const startButton = document.querySelector('#startButton');
 
 startButton.addEventListener('click', () => {
-  kickDrum.play();
   audioCtx.resume().then(()=>{
     loop.start();
   })
@@ -79,11 +78,8 @@ longestPerfectStreak=perfectStreak;
 perfectStreak=0;
 }
 
-startButton.addEventListener('click', () => {
-  loop.start();
-})
-
 BeatButton.addEventListener('click', () =>{
+  kickDrum.play();
   clicked = true;
   let li = document.createElement('li');
   switch(true){
