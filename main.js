@@ -1,7 +1,7 @@
 const loop = new GameLoop();
 
-const kickDrum = new Howl({src:['sounds/BD.wav']});
-const RimDrum = new Howl({src:['sounds/Rim.wav']});
+const kickDrum = new Howl({src:['static/sounds/BD.wav']});
+const RimDrum = new Howl({src:['static/sounds/Rim.wav']});
 
 const stats = {
   money: 0,
