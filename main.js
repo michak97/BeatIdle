@@ -1,8 +1,5 @@
 const loop = new GameLoop();
 
-let kickDrum = new Howl({src:['sounds/BD.wav']})
-let RimDrum = new Howl({src:['sounds/Rim.wav']})
-
 const stats = {
   money: 0,
   moneyPerClick: 1,
