@@ -141,4 +141,5 @@ loop.onPanic = function() {
 
 $(document).on('visibilitychange', () => {
   violin1.stop();
+  violinPlaying = false;
 })
