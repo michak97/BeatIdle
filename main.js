@@ -51,7 +51,6 @@ const startButton = document.querySelector('#startButton');
 
 
 BeatButton.addEventListener('click', () => {
-  stats.money += stats.moneyPerClick;
   kickDrum.play();
 })
 startButton.addEventListener('click', () => {
@@ -97,19 +96,19 @@ BeatButton.addEventListener('click', () =>{
     	li.textContent = "great";
       scoreListEl.appendChild(li);
       stats.beatMultiplier=1.6;
-      perfectStreak=0;
+      resetStreak();
       break;
    	case stats.beatMultiplier > scoreTiers.good:
     	li.textContent = "good";
       scoreListEl.appendChild(li);
       stats.beatMultiplier=1.2;
-      perfectStreak=0;
+      resetStreak();
       break;
     case stats.beatMultiplier > scoreTiers.okay:
     	li.textContent = "okay";
       scoreListEl.appendChild(li);
       stats.beatMultiplier=1.0;
-      perfectStreak=0;
+      resetStreak();
       break;
   }
   currency+=stats.moneyPerClick*(stats.beatMultiplier*clickMultiplier);
@@ -120,4 +119,3 @@ loop.onPanic = function() {
   // discard any accumulated lag time and hope for the best
   this.timing.lag = 0;
 };
-

@@ -66,8 +66,8 @@ class GameLoop {
     	if (clicked===false){
       	perfectStreak=0;
       }
-      clicked=false;
-    	clickMultiplier = 1;
+        clicked=false;
+        clickMultiplier = 1;
     }
     if (beatTiming >= singleBeatTime){
       lastSingleBeatTime = this.timing.total;
@@ -79,8 +79,8 @@ class GameLoop {
     while (this.timing.lag >= this.options.step) {
       this.timing.lag -= this.options.step;
       this.onUpdate(this.options.step, this.timing.total);
-      this.numberOfUpdates++;
-      if (this.numberOfUpdates >= this.options.maxUpdates) {
+      numberOfUpdates++;
+      if (numberOfUpdates >= this.options.maxUpdates) {
         this.onPanic();
         break;
       }
