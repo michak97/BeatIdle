@@ -4,11 +4,14 @@
   background:red;
 }
 #startButton{
-  width:50px;
-  height:50px;
-  background:red;
+  position:fixed;
+  top:50%;
+  left:50%;
 }
 #nerdStats{
+  list-style:none;
+}
+#score-list{
   list-style:none;
 }
 #nerdStats p{
@@ -21,4 +24,7 @@
   position:fixed;
   top:0px;
   right:0px;
+}
+#clicker-container{
+  height:60vh;
 }
