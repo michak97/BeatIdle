@@ -65,7 +65,7 @@ class GameLoop {
     if (scoreTimer.toFixed(2)==0.00){
     clickMultiplier = 1;
     	if (clicked===false){
-      	perfectStreak=0;
+      	resetStreak();
       }
         clicked=false;
     }
