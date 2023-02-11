@@ -1,17 +1,19 @@
 <link rel="stylesheet" href="static/css/bootstrap.min.css" crossorigin="anonymous">
 <link rel="stylesheet" href="beatstyle.css" type="text/css"/>
 
-<ul id = "nerdStats">
-<li>Beat ms: <p id="beatTime"></p></li>
-<li>BPM: <p id="BPM"></p></li>
-<li>Last time of Beat in ms:<p id="lastSingleBeatTime"></p></li>
-<li>Score Timer: <p id="scoreTimer">
+<div id="nerdStatsContainer">
+  <ul id = "nerdStats">
+  <li>Beat ms: <p id="beatTime"></p></li>
+  <li>BPM: <p id="BPM"></p></li>
+  <li>Last time of Beat in ms:<p id="lastSingleBeatTime"></p></li>
+  <li>Score Timer: <p id="scoreTimer">
 
-</p></li>
-<li>Beat Score: <p id="beatMultiplier"></p></li>
-<li>Click Multiplier: <p id ="clickMultiplier">
-</p></li>
-</ul>
+  </p></li>
+  <li>Beat Score: <p id="beatMultiplier"></p></li>
+  <li>Click Multiplier: <p id ="clickMultiplier">
+  </p></li>
+  </ul>
+</div>
 <div class="main-page">
 
   <div id="currency"></div>
@@ -25,7 +27,6 @@
     <div id="clicker"></div>
   </div>
 </div>
-
 <script src="static/js/jquery.slim.min.js"></script>
 <script src="static/js/popper.min.js"></script>
 <script src="static/js/bootstrap.min.js"></script>

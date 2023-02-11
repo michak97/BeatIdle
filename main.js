@@ -94,6 +94,7 @@ startButton.addEventListener('click', () => {
 })
 
 BeatButton.addEventListener('click', () =>{
+  kickDrum.play();
   clicked = true;
   let li = document.createElement('li');
   switch(true){

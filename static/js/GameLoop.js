@@ -70,6 +70,7 @@ class GameLoop {
         clicked=false;
     }
     if (beatTiming >= singleBeatTime){
+      rimDrum.play();
       lastSingleBeatTime = this.timing.total;
     }
 
