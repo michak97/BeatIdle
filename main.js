@@ -72,46 +72,57 @@ loop.onRender = function(i) {
   clickMultiplierEl.textContent = clickMultiplier;
 };
 
+let pushScore = (element) =>{
+	if(document.querySelectorAll('#score-list > li').length<5==true){
+	scoreListEl.appendChild(element);
+  }
+  else{
+  document.querySelectorAll('#score-list > li')[0].remove();
+  scoreListEl.appendChild(element);
+  }
+
+}
+
 let resetStreak = () => {if(perfectStreak>longestPerfectStreak){
 longestPerfectStreak=perfectStreak;
 }
 perfectStreak=0;
 }
 
+startButton.addEventListener('click', () => {
+  loop.start();
+})
+
 BeatButton.addEventListener('click', () =>{
-  kickDrum.play();
   clicked = true;
   let li = document.createElement('li');
   switch(true){
   	case stats.beatMultiplier > scoreTiers.perfect:
-    	li.textContent = "perfect";
-    	scoreListEl.appendChild(li);
+    	li.classList.add("perfect");
+    	pushScore(li);
       stats.beatMultiplier=2.0;
       perfectStreak++;
       break;
     case stats.beatMultiplier > scoreTiers.great:
-    	li.textContent = "great";
-      scoreListEl.appendChild(li);
+    	li.classList.add("great");
+      pushScore(li);
       stats.beatMultiplier=1.6;
       resetStreak();
       break;
    	case stats.beatMultiplier > scoreTiers.good:
-    	li.textContent = "good";
-      scoreListEl.appendChild(li);
+    	li.textContent = "great";
+      pushScore(li);
       stats.beatMultiplier=1.2;
       resetStreak();
       break;
     case stats.beatMultiplier > scoreTiers.okay:
-    	li.textContent = "okay";
-      scoreListEl.appendChild(li);
+    	li.textContent = "great";
+      pushScore(li);
       stats.beatMultiplier=1.0;
       resetStreak();
       break;
   }
   currency+=stats.moneyPerClick*(stats.beatMultiplier*clickMultiplier);
-  if(clickMultiplier===0){
-    resetStreak();
-  }
   clickMultiplier = 0;
 })
 

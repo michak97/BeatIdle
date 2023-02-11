@@ -71,9 +71,6 @@ class GameLoop {
     }
     if (beatTiming >= singleBeatTime){
       lastSingleBeatTime = this.timing.total;
-      if(perfectStreak<10) {
-        rimDrum.play();
-      }
     }
 
     let numberOfUpdates = 0;
