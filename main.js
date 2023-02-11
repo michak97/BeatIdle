@@ -38,10 +38,12 @@ let currency_per_millisecond = 0;
 const BeatEl = document.querySelector('#beatTime');
 const BPMEl = document.querySelector('#BPM');
 const LSBTEl = document.querySelector('#lastSingleBeatTime');
+const scoreTimerEl = document.querySelector('#scoreTimer');
 const beatMultiplierEl = document.querySelector('#beatMultiplier');
 const beatTimingEl = document.querySelector('#beatTime');
 const scoreListEl = document.querySelector('#score-list');
 const streakEl = document.querySelector('#score');
+const clickMultiplierEl = document.querySelector('#clickMultiplier')
 
 BPMEl.textContent = BPM.toString();
 
@@ -49,10 +51,6 @@ const currencyEl = document.querySelector('#currency');
 const BeatButton = document.querySelector('#clicker');
 const startButton = document.querySelector('#startButton');
 
-
-BeatButton.addEventListener('click', () => {
-  kickDrum.play();
-})
 startButton.addEventListener('click', () => {
   audioCtx.resume().then(()=>{
     loop.start();
@@ -68,8 +66,10 @@ loop.onRender = function(i) {
   LSBTEl.textContent = lastSingleBeatTime.toFixed(2);
   BeatEl.textContent = singleBeatTime.toFixed(2);
   beatMultiplierEl.textContent = stats.beatMultiplier.toFixed(2);
+  scoreTimerEl.textContent = scoreTimer.toFixed(2);
   beatTimingEl.textContent = beatTiming.toFixed(2);
   streakEl.textContent = perfectStreak.toFixed(2);
+  clickMultiplierEl.textContent = clickMultiplier;
 };
 
 let resetStreak = () => {if(perfectStreak>longestPerfectStreak){
@@ -119,3 +119,4 @@ loop.onPanic = function() {
   // discard any accumulated lag time and hope for the best
   this.timing.lag = 0;
 };
+
