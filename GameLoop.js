@@ -73,7 +73,6 @@ class GameLoop {
       lastSingleBeatTime = this.timing.total;
     }
 
-
     let numberOfUpdates = 0;
 
     while (this.timing.lag >= this.options.step) {

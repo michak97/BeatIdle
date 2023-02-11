@@ -1,5 +1,8 @@
 const loop = new GameLoop();
 
+const kickDrum = new Howl({src:['sounds/BD.wav']});
+const RimDrum = new Howl({src:['sounds/Rim.wav']});
+
 const stats = {
   money: 0,
   moneyPerClick: 1,
@@ -42,9 +45,14 @@ BPMEl.textContent = BPM.toString();
 
 const currencyEl = document.querySelector('#currency');
 const BeatButton = document.querySelector('#clicker');
+const startButton = document.querySelector('#startButton');
+
 
 BeatButton.addEventListener('click', () => {
   stats.money += stats.moneyPerClick;
+})
+startButton.addEventListener('click', () => {
+  loop.start()
 })
 
 loop.onUpdate = function(dt, t) {
