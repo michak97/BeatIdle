@@ -62,7 +62,12 @@ class GameLoop {
     beatTiming = this.timing.total - lastSingleBeatTime;
     scoreTimer = ((1/2)+(1/2)*Math.cos(2*beatTiming*Math.PI/singleBeatTime));
     stats.beatMultiplier = clickMultiplier*scoreTimer;
-    if (scoreTimer.toFixed(2)==0.00){
+    if (scoreTimer.toFixed(2)===0.00){
+      RimDrum.play();
+    	if (clicked===false){
+      	perfectStreak=0;
+      }
+      clicked=false;
     	clickMultiplier = 1;
     }
     if (beatTiming >= singleBeatTime){

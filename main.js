@@ -1,5 +1,8 @@
 const loop = new GameLoop();
 
+let kickDrum = new Howl({src:['sounds/BD.wav']})
+let RimDrum = new Howl({src:['sounds/Rim.wav']})
+
 const stats = {
   money: 0,
   moneyPerClick: 1,
@@ -22,6 +25,9 @@ const singleBeatTime = 60000/BPM;
 let beatTiming = 0;
 
 let perfectStreak = 0;
+let longestPerfectStreak = 0;
+
+let clicked = false;
 
 let lastSingleBeatTime = 0;
 let currency = 0;
@@ -57,30 +63,42 @@ loop.onRender = function(i) {
   streakEl.textContent = perfectStreak.toFixed(2);
 };
 
+let resetStreak = () => {if(perfectStreak>longestPerfectStreak){
+longestPerfectStreak=perfectStreak;
+}
+perfectStreak=0;
+}
+
 BeatButton.addEventListener('click', () =>{
+	clicked = true;
   let li = document.createElement('li');
   switch(true){
   	case stats.beatMultiplier > scoreTiers.perfect:
     	li.textContent = "perfect";
     	scoreListEl.appendChild(li);
+      stats.beatMultiplier=2.0;
       perfectStreak++;
       break;
     case stats.beatMultiplier > scoreTiers.great:
     	li.textContent = "great";
       scoreListEl.appendChild(li);
+      stats.beatMultiplier=1.6;
       perfectStreak=0;
       break;
    	case stats.beatMultiplier > scoreTiers.good:
     	li.textContent = "good";
       scoreListEl.appendChild(li);
+      stats.beatMultiplier=1.2;
       perfectStreak=0;
       break;
     case stats.beatMultiplier > scoreTiers.okay:
     	li.textContent = "okay";
       scoreListEl.appendChild(li);
+      stats.beatMultiplier=1.0;
       perfectStreak=0;
       break;
   }
+  currency+=stats.moneyPerClick*(stats.beatMultiplier*clickMultiplier);
   clickMultiplier = 0;
 })
 
