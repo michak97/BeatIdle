@@ -139,3 +139,6 @@ loop.onPanic = function() {
   this.timing.lag = 0;
 };
 
+$(document).on('visibilitychange', () => {
+  violin1.stop();
+})
