@@ -17,6 +17,8 @@ const scoreTiers = {
   okay: 0.3
 }
 
+let audioCtx = new AudioContext();
+
 let oldStats = { ...stats}
 let scoreTimer = 1;
 let clickMultiplier = 1;
@@ -53,6 +55,9 @@ BeatButton.addEventListener('click', () => {
 })
 startButton.addEventListener('click', () => {
   loop.start()
+  audioCtx.resume().then(()=>{
+    kickDrum.start();
+  })
 })
 
 loop.onUpdate = function(dt, t) {
