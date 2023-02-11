@@ -83,7 +83,7 @@ class GameLoop {
       woodwind.play();
       woodwindPlaying = true;
     }
-    if(perfectStreak>42 && violin2Playing===false){
+    if(perfectStreak>40 && violin2Playing===false){
       violin2.play();
       violin2Playing = true;
     }
