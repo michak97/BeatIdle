@@ -70,10 +70,15 @@ class GameLoop {
         clicked=false;
     }
     if (beatTiming >= singleBeatTime){
-      rimDrum.play();
+      if(perfectStreak<=10){
+        rimDrum.play();
+      }
       lastSingleBeatTime = this.timing.total;
     }
-
+    if(perfectStreak>10){
+      rimDrum.stop();
+      violin1.play();
+    }
     let numberOfUpdates = 0;
 
     while (this.timing.lag >= this.options.step) {
