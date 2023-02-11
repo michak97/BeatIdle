@@ -75,9 +75,17 @@ class GameLoop {
       }
       lastSingleBeatTime = this.timing.total;
     }
-    if(perfectStreak>10 && violinPlaying===false){
+    if(perfectStreak>10 && violin1Playing===false){
       violin1.play();
-      violinPlaying = true;
+      violin1Playing = true;
+    }
+    if(perfectStreak>20 && woodwindPlaying===false){
+      woodwind.play();
+      woodwindPlaying = true;
+    }
+    if(perfectStreak>30 && violin2Playing===false){
+      violin2.play();
+      violin2Playing = true;
     }
     let numberOfUpdates = 0;
 

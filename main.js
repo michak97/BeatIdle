@@ -3,8 +3,12 @@ const loop = new GameLoop();
 const kickDrum = new Howl({src:['static/sounds/BD.wav']});
 const rimDrum = new Howl({src:['static/sounds/Rim.wav']});
 const violin1 = new Howl({src:['static/sounds/violin1.wav'], loop:true})
+const violin2 = new Howl({src:['static/sounds/violin2.wav'], loop:true})
+const woodwind = new Howl({src:['static/sounds/woodwind.wav'], loop:true})
 
-let violinPlaying = false;
+let violin1Playing = false;
+let violin2Playing = false;
+let woodwindPlaying = false;
 
 const stats = {
   money: 0,
@@ -91,7 +95,11 @@ let resetStreak = () => {if(perfectStreak>longestPerfectStreak){
   }
   perfectStreak=0;
   violin1.stop();
-  violinPlaying=false;
+  violin1Playing=false;
+  violin2.stop();
+  violin2Playing=false;
+  woodwind.stop();
+  woodwindPlaying=false;
 }
 
 startButton.addEventListener('click', () => {
@@ -100,7 +108,7 @@ startButton.addEventListener('click', () => {
 
 let beatAnimation = async () => {
   BeatButton.classList.add('beatClick');
-  await new Promise(r => setTimeout(r, 500));
+  await new Promise(r => setTimeout(r, 300));
   BeatButton.classList.remove('beatClick');
 }
 
@@ -148,5 +156,9 @@ loop.onPanic = function() {
 
 $(document).on('visibilitychange', () => {
   violin1.stop();
-  violinPlaying = false;
+  violin1Playing = false;
+  violin2.stop();
+  violin2Playing = false;
+  woodwind.stop();
+  woodwindPlaying = false;
 })
