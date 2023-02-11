@@ -98,7 +98,14 @@ startButton.addEventListener('click', () => {
   loop.start();
 })
 
+let beatAnimation = async () => {
+  BeatButton.classList.add('beatClick');
+  await new Promise(r => setTimeout(r, 500));
+  BeatButton.classList.remove('beatClick');
+}
+
 BeatButton.addEventListener('click', () =>{
+  beatAnimation();
   if(clickMultiplier===1){
     kickDrum.play();
   }

@@ -1,13 +1,17 @@
 :root{
   --primary-h: 121;
+  --primary-right-analogous: calc(var(--primary-h)+30);
+  --primary-left-analogous: calc(var(--primary-h)-30);
+  --secondary-h: calc(var(--primary-h) + 180);
   --primary-s: 72%;
   --primary-l: 62%;
 }
 #clicker{
   height:50vh;
   width:50vh;
+  transition:0.1s;
   border-radius:50%;
-  background-color: hsl(var(--primary-h), var(--primary-s), var(--primary-l));
+  background-color: hsl(calc(var(--primary-h)), var(--primary-s), var(--primary-l));
 }
 #startButton{
   position:relative;
@@ -40,8 +44,9 @@
   justify-content:center;
   align-items:center;
   background-color: #e5e5f7;
-  opacity: 0.8;
-  background-image:  linear-gradient(30deg, #444cf7 12%, transparent 12.5%, transparent 87%, #444cf7 87.5%, #444cf7), linear-gradient(150deg, #444cf7 12%, transparent 12.5%, transparent 87%, #444cf7 87.5%, #444cf7), linear-gradient(30deg, #444cf7 12%, transparent 12.5%, transparent 87%, #444cf7 87.5%, #444cf7), linear-gradient(150deg, #444cf7 12%, transparent 12.5%, transparent 87%, #444cf7 87.5%, #444cf7), linear-gradient(60deg, #444cf777 25%, transparent 25.5%, transparent 75%, #444cf777 75%, #444cf777), linear-gradient(60deg, #444cf777 25%, transparent 25.5%, transparent 75%, #444cf777 75%, #444cf777);
-  background-size: 20px 35px;
-  background-position: 0 0, 0 0, 10px 18px, 10px 18px, 0 0, 10px 18px;
+opacity: 0.8;
+background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #e5e5f7 10px ), repeating-linear-gradient( #444cf755, #444cf7 );
+}
+#clicker.beatClick{
+  transform: scale(1.1);
 }
