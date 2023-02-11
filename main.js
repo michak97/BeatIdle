@@ -79,9 +79,12 @@ longestPerfectStreak=perfectStreak;
 perfectStreak=0;
 }
 
-BeatButton.addEventListener('click', () =>{
+startButton.addEventListener('click', () => {
   loop.start();
-	clicked = true;
+})
+
+BeatButton.addEventListener('click', () =>{
+  clicked = true;
   let li = document.createElement('li');
   switch(true){
   	case stats.beatMultiplier > scoreTiers.perfect:
