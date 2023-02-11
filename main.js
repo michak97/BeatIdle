@@ -109,7 +109,7 @@ BeatButton.addEventListener('click', () =>{
       break;
   }
   currency+=stats.moneyPerClick*(stats.beatMultiplier*clickMultiplier);
-  if(clickMultiplier==0){
+  if(clickMultiplier===0){
     resetStreak();
   }
   clickMultiplier = 0;
