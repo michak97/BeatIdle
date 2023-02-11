@@ -75,9 +75,9 @@ class GameLoop {
       }
       lastSingleBeatTime = this.timing.total;
     }
-    if(perfectStreak>10){
-      rimDrum.stop();
+    if(perfectStreak>10 && violinPlaying===false){
       violin1.play();
+      violinPlaying = true;
     }
     let numberOfUpdates = 0;
 
