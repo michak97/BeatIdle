@@ -52,6 +52,7 @@ const BeatButton = document.querySelector('#clicker');
 const startButton = document.querySelector('#startButton');
 
 startButton.addEventListener('click', () => {
+  kickDrum.play();
   audioCtx.resume().then(()=>{
     loop.start();
   })
