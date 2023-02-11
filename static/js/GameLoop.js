@@ -73,7 +73,6 @@ class GameLoop {
       lastSingleBeatTime = this.timing.total;
       if(perfectStreak<10) {
         rimDrum.play();
-        MusicManager.play();
       }
     }
 
