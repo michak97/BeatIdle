@@ -99,7 +99,9 @@ startButton.addEventListener('click', () => {
 })
 
 BeatButton.addEventListener('click', () =>{
-  kickDrum.play();
+  if(clickMultiplier===1){
+    kickDrum.play();
+  }
   clicked = true;
   let li = document.createElement('li');
   switch(true){
