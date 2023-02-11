@@ -70,6 +70,7 @@ perfectStreak=0;
 }
 
 BeatButton.addEventListener('click', () =>{
+  loop.start();
 	clicked = true;
   let li = document.createElement('li');
   switch(true){
@@ -107,4 +108,3 @@ loop.onPanic = function() {
   this.timing.lag = 0;
 };
 
-loop.start();
