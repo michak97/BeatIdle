@@ -87,9 +87,11 @@ let pushScore = (element) =>{
 }
 
 let resetStreak = () => {if(perfectStreak>longestPerfectStreak){
-longestPerfectStreak=perfectStreak;
-}
-perfectStreak=0;
+  longestPerfectStreak=perfectStreak;
+  }
+  perfectStreak=0;
+  violin1.stop();
+  violinPlaying=false;
 }
 
 startButton.addEventListener('click', () => {
