@@ -71,6 +71,7 @@ class GameLoop {
     }
     if (beatTiming >= singleBeatTime){
       lastSingleBeatTime = this.timing.total;
+      rimDrum.play();
     }
 
     let numberOfUpdates = 0;

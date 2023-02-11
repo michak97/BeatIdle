@@ -1,7 +1,7 @@
 const loop = new GameLoop();
 
 const kickDrum = new Howl({src:['static/sounds/BD.wav']});
-const RimDrum = new Howl({src:['static/sounds/Rim.wav']});
+const rimDrum = new Howl({src:['static/sounds/Rim.wav']});
 
 const stats = {
   money: 0,
@@ -52,11 +52,11 @@ const startButton = document.querySelector('#startButton');
 
 BeatButton.addEventListener('click', () => {
   stats.money += stats.moneyPerClick;
+  kickDrum.play();
 })
 startButton.addEventListener('click', () => {
-  loop.start()
   audioCtx.resume().then(()=>{
-    kickDrum.play();
+    loop.start();
   })
 })
 
