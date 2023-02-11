@@ -56,7 +56,7 @@ BeatButton.addEventListener('click', () => {
 startButton.addEventListener('click', () => {
   loop.start()
   audioCtx.resume().then(()=>{
-    kickDrum.start();
+    kickDrum.play();
   })
 })
 
