@@ -116,7 +116,7 @@ let beatAnimation = async () => {
   BeatButton.classList.remove('beatClick');
 }
 
-let beatclick= () => {
+let beatClick= () => {
     beatAnimation();
     if(clickMultiplier===1){
         kickDrum.play();
@@ -154,6 +154,13 @@ let beatclick= () => {
 
 }
 
+let buyBuilding1 = () => {
+    if(currency >= building1Cost){
+        building1 += 1;
+        currency -= building1Cost;
+    }
+}
+
 window.addEventListener("keydown", (event) => {
     console.log(event.which);
     if(event.key==" "||event.which==32){
@@ -163,16 +170,8 @@ window.addEventListener("keydown", (event) => {
         buyBuilding1();
     }
 })
-
-let buybuilding1 = () => {
-    if(currency >= building1Cost){
-        building1 += 1;
-        currency -= building1Cost;
-    }
-}
-
 BeatButton.addEventListener('click', () =>{
-  beatclick();
+  beatClick();
 })
 
 loop.onPanic = function() {
