@@ -151,7 +151,7 @@ let beatclick= () => {
 }
 
 window.addEventListener("keydown", (event) => {
-    if(event.key=="space"){
+    if(event.key=="Space"||event==49){
         beatClick();
     }
 })
