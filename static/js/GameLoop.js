@@ -61,6 +61,7 @@ class GameLoop {
     this.timing.last = time;
     beatTiming = this.timing.total - lastSingleBeatTime;
     scoreTimer = ((1/2)+(1/2)*Math.cos(2*beatTiming*Math.PI/singleBeatTime));
+    currency_per_beat=building1Currency*building1;
     stats.beatMultiplier = clickMultiplier*scoreTimer;
     if (scoreTimer.toFixed(2)==0.00){
     clickMultiplier = 1;

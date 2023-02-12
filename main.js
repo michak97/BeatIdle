@@ -44,7 +44,7 @@ let building1Currency = 0.1;
 
 let lastSingleBeatTime = 0;
 let currency = 0;
-let currency_per_beat = building1Currency*building1;
+let currency_per_beat = 0;
 
 const BeatEl = document.querySelector('#beatTime');
 const BPMEl = document.querySelector('#BPM');
