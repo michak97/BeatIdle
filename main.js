@@ -38,9 +38,13 @@ let longestPerfectStreak = 0;
 
 let clicked = false;
 
+let building1 = 0;
+let building1Cost = 100;
+let building1Currency = 0.1;
+
 let lastSingleBeatTime = 0;
 let currency = 0;
-let currency_per_millisecond = 0;
+let currency_per_millisecond = building1Currency*building1;
 
 const BeatEl = document.querySelector('#beatTime');
 const BPMEl = document.querySelector('#BPM');
@@ -151,10 +155,21 @@ let beatclick= () => {
 }
 
 window.addEventListener("keydown", (event) => {
-    if(event.key=="Space"||event==49){
+    console.log(event.which);
+    if(event.key==" "||event.which==32){
         beatClick();
     }
+    if(event.key=="q"||event.which==81){
+        buyBuilding1();
+    }
 })
+
+let buybuilding1 = () => {
+    if(currency >= building1Cost){
+        building1 += 1;
+        currency -= building1Cost;
+    }
+}
 
 BeatButton.addEventListener('click', () =>{
   beatclick();
