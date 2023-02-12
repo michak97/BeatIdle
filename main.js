@@ -1,11 +1,13 @@
 const loop = new GameLoop();
 
-const kickDrum = new Howl({src:['static/sounds/BD.wav']});
-const rimDrum = new Howl({src:['static/sounds/Rim.wav']});
-const violin1 = new Howl({src:['static/sounds/violin1.wav'], loop:true})
-const violin2 = new Howl({src:['static/sounds/violin2.wav'], loop:true})
-const woodwind = new Howl({src:['static/sounds/woodwind.wav'], loop:true})
+const kickDrum = new Howl({src:['static/sounds/BD.ogg']});
+const BASS = new Howl({src:['static/sounds/BASS.ogg']});
+const rimDrum = new Howl({src:['static/sounds/Rim.ogg']});
+const violin1 = new Howl({src:['static/sounds/violin1.ogg'], loop:true})
+const violin2 = new Howl({src:['static/sounds/violin2.ogg'], loop:true})
+const woodwind = new Howl({src:['static/sounds/woodwind.ogg'], loop:true})
 
+let BASSPlaying = false;
 let violin1Playing = false;
 let violin2Playing = false;
 let woodwindPlaying = false;
@@ -65,7 +67,7 @@ const startButton = document.querySelector('#startButton');
 
 loop.onUpdate = function(dt, t) {
     if(beatTiming >= singleBeatTime) {
-        currency += currency_per_beat/singleBeatTime;
+        currency += currency_per_beat/singleBeatTime*(dt/singleBeatTime);
     }
 };
 
@@ -102,6 +104,8 @@ let resetStreak = () => {if(perfectStreak>longestPerfectStreak){
   longestPerfectStreak=perfectStreak;
   }
   perfectStreak=0;
+    BASS.stop();
+    BASSPlaying=false;
   violin1.stop();
   violin1Playing=false;
   violin2.stop();
