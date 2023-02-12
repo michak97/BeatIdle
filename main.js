@@ -68,10 +68,6 @@ startButton.addEventListener('click', () => {
   })
 })
 
-loop.onUpdate = function(dt, t) {
-  currency += currency_per_millisecond * dt;
-};
-
 loop.onRender = function(i) {
   currencyEl.textContent = currency.toFixed(2);
   LSBTEl.textContent = lastSingleBeatTime.toFixed(2);
