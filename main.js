@@ -54,7 +54,8 @@ const beatMultiplierEl = document.querySelector('#beatMultiplier');
 const beatTimingEl = document.querySelector('#beatTime');
 const scoreListEl = document.querySelector('#score-list');
 const streakEl = document.querySelector('#score');
-const clickMultiplierEl = document.querySelector('#clickMultiplier')
+const clickMultiplierEl = document.querySelector('#clickMultiplier');
+const currencyPerBeatEl = document.querySelector('#currencyPerBeat');
 
 BPMEl.textContent = BPM.toString();
 
@@ -81,6 +82,7 @@ loop.onRender = function(i) {
   beatTimingEl.textContent = beatTiming.toFixed(2);
   streakEl.textContent = perfectStreak.toFixed(2);
   clickMultiplierEl.textContent = clickMultiplier;
+  currencyPerBeatEl.textContent = currency_per_beat.toFixed(2);
 };
 
 let pushScore = (element) =>{
