@@ -38,7 +38,7 @@ let longestPerfectStreak = 0;
 
 let clicked = false;
 
-let building1 = 0;
+let building1 = 1;
 let building1Cost = 100;
 let building1Currency = 0.1;
 
