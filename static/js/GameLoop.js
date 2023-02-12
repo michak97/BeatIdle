@@ -70,6 +70,7 @@ class GameLoop {
         clicked=false;
     }
     if (beatTiming >= singleBeatTime){
+        currency += currency_per_beat;
       if(perfectStreak<=10){
         rimDrum.play();
       }
