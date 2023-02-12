@@ -154,7 +154,7 @@ window.addEventListener("keydown", (event) => {
     if(event.key=="space"){
         beatClick();
     }
-}
+})
 
 BeatButton.addEventListener('click', () =>{
   beatclick();
