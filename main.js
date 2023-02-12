@@ -65,7 +65,7 @@ const startButton = document.querySelector('#startButton');
 
 loop.onUpdate = function(dt, t) {
     if(beatTiming >= singleBeatTime) {
-        currency += currency_per_beat * (dt/BPM);
+        currency += currency_per_beat/singleBeatTime;
     }
 };
 
