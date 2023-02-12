@@ -77,7 +77,7 @@ class GameLoop {
       }
       lastSingleBeatTime = this.timing.total;
     }
-    if(perfectStreak>8 && violin1Playing===false){
+    if(perfectStreak>8 && BASSPlaying===false){
       BASS.play();
       BASSPlaying = true;
     }
