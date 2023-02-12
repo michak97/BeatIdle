@@ -112,41 +112,52 @@ let beatAnimation = async () => {
   BeatButton.classList.remove('beatClick');
 }
 
-BeatButton.addEventListener('click', () =>{
-  beatAnimation();
-  if(clickMultiplier===1){
-    kickDrum.play();
-  }
-  clicked = true;
-  let li = document.createElement('li');
-  switch(true){
-  	case stats.beatMultiplier > scoreTiers.perfect:
-    	li.classList.add("perfect");
-    	pushScore(li);
-      stats.beatMultiplier=2.0;
-      perfectStreak++;
-      break;
-    case stats.beatMultiplier > scoreTiers.great:
-    	li.classList.add("great");
-      pushScore(li);
-      stats.beatMultiplier=1.6;
-      resetStreak();
-      break;
-   	case stats.beatMultiplier > scoreTiers.good:
-    	li.classList.add("good");
-      pushScore(li);
-      stats.beatMultiplier=1.2;
-      resetStreak();
-      break;
-    case stats.beatMultiplier > scoreTiers.okay:
-      li.classList.add("okay");
-      pushScore(li);
-      stats.beatMultiplier=1.0;
-      resetStreak();
-      break;
+let beatclick= () => {
+    beatAnimation();
+    if(clickMultiplier===1){
+        kickDrum.play();
+    }
+    clicked = true;
+    let li = document.createElement('li');
+    switch(true){
+  	    case stats.beatMultiplier > scoreTiers.perfect:
+    	    li.classList.add("perfect");
+    	    pushScore(li);
+            stats.beatMultiplier=2.0;
+            perfectStreak++;
+            break;
+        case stats.beatMultiplier > scoreTiers.great:
+    	    li.classList.add("great");
+            pushScore(li);
+            stats.beatMultiplier=1.6;
+            resetStreak();
+            break;
+   	    case stats.beatMultiplier > scoreTiers.good:
+    	    li.classList.add("good");
+            pushScore(li);
+            stats.beatMultiplier=1.2;
+            resetStreak();
+            break;
+        case stats.beatMultiplier > scoreTiers.okay:
+            li.classList.add("okay");
+            pushScore(li);
+            stats.beatMultiplier=1.0;
+            resetStreak();
+            break;
   }
   currency+=stats.moneyPerClick*(stats.beatMultiplier*clickMultiplier);
   clickMultiplier = 0;
+
+}
+
+window.addEventListener("keydown", (event) => {
+    if(event.key=="space"){
+        beatClick();
+    }
+}
+
+BeatButton.addEventListener('click', () =>{
+  beatclick();
 })
 
 loop.onPanic = function() {
